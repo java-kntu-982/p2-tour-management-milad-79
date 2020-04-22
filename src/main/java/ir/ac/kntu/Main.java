@@ -1,14 +1,34 @@
 package ir.ac.kntu;
 
-import ir.ac.kntu.maputil.MapUtil;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        while (true){
+            startMenu();
+        }
+    }
 
-//        Good for showing one location
-        MapUtil.showMap("Shiraz");
-        MapUtil.showMap("@29.6257966,52.5563165,17z");
-//        Good for showing two locations
-        MapUtil.showMap("Tehran","Dubai");
+    public static void startMenu() {
+        System.out.println("Choose:");
+        System.out.println("1-TourLeader");
+        System.out.println("2-Tour");
+        System.out.println("3-Locals");
+        System.out.println("4-Maps");
+        Scanner input = new Scanner(System.in);
+        switch (input.nextInt()) {
+            case 1:
+                LeaderMenu.leaderMenu();
+                break;
+            case 2:
+                TourMenu.start();
+                break;
+            case 3:
+                Areas.areaMenu();
+                break;
+            case 4:
+                Map.start();
+                break;
+        }
     }
 }
