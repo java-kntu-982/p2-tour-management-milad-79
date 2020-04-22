@@ -60,4 +60,7 @@ public class Map {
             MapUtil.showMap(input.next());
         }
     }
+
+    private Map() {
+    }
 }

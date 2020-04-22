@@ -6,7 +6,6 @@ public class Tour {
     private String name;
     private boolean isComplete;
     private int time;
-    private String area;
     private String beginning;
     private String distination;
     private Date startTour;
@@ -22,6 +21,9 @@ public class Tour {
     public String getName() {
         return name;
     }
+    public Tour(){
+
+    }
 
     public void setLeader(TourLeader leader) {
         this.leader = leader;
@@ -29,6 +31,10 @@ public class Tour {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDistination(String distination) {
+        this.distination = distination;
     }
 
     public boolean isComplete() {
@@ -68,6 +74,9 @@ public class Tour {
         }
     }
 
+    public void setTypeArea(TypeArea typeArea) {
+        this.typeArea = typeArea;
+    }
 
     public void setPrice(int price) {
         this.price = price;
@@ -88,15 +97,11 @@ public class Tour {
     }
 
 
-    public void setNoe(TypeArea khareji) {
-    }
-
     @Override
     public String toString() {
         return "Tour{" +
                 "name='" + name + '\'' +
                 ", time=" + time +
-                ", area='" + area + '\'' +
                 ", mabda='" + beginning + '\'' +
                 ", maghsad='" + distination + '\'' +
                 ", startTour=" + startTour +
@@ -116,7 +121,6 @@ public class Tour {
                 "name='" + name + '\'' +
                 ", takmilTour=" + isComplete +
                 ", Time=" + time +
-                ", local='" + area + '\'' +
                 ", mabda='" + beginning + '\'' +
                 ", maghsad='" + distination + '\'' +
                 ", StartTour=" + startTour +

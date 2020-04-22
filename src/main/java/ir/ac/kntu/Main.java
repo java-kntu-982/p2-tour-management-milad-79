@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        while (true){
+        while (true) {
             startMenu();
         }
     }
@@ -30,5 +30,8 @@ public class Main {
                 Map.start();
                 break;
         }
+    }
+
+    private Main() {
     }
 }

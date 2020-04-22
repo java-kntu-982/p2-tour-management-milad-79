@@ -38,7 +38,7 @@ public class LeaderMenu {
 
         while (true) {
             System.out.println("choose element:");
-            System.out.printf("0-finish vireyesh\n1-FistName\n2-LastName\n3-shomare meli" +
+            System.out.println("0-finish vireyesh\n1-FistName\n2-LastName\n3-shomare meli" +
                     "\n4-tahol\n5-Date birth\n6-Date enteghdam\n7-Locals");
             int ch = input.nextInt();
             if (ch == 0) {
@@ -50,7 +50,7 @@ public class LeaderMenu {
             }
             if (ch == 2) {
                 String s = input.nextLine();
-                leaders.get(index).setLastName(input.nextLine());
+                leaders.get(index).setLastName(s);
             }
 
             if (ch == 3) {
@@ -95,7 +95,7 @@ public class LeaderMenu {
     }
 
     public static void removeLeader(){
-        System.out.printf("choose Leader:");
+        System.out.println("choose Leader:");
         listLeader();
         Scanner input=new Scanner(System.in);
         leaders.remove(input.nextInt());
@@ -106,7 +106,7 @@ public class LeaderMenu {
         for(i=0;i<leaders.size();i++){
             System.out.print(i+"-");
             System.out.print(leaders.get(i).getFirsName());
-            System.out.printf("\t\t");
+            System.out.print("\t\t");
             System.out.println(leaders.get(i).getLastName());
         }
         if (i==0){
@@ -156,6 +156,9 @@ public class LeaderMenu {
             }
         }
         return leader;
+    }
+    private LeaderMenu(){
+
     }
 }
 

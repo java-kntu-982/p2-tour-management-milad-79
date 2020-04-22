@@ -23,10 +23,6 @@ public class Areas {
 
     }
 
-    public static String getLocal(int index) {
-        return area.get(index);
-    }
-
     public static void editArea(){
         Scanner input=new Scanner(System.in);
         System.out.println("choose local:");
@@ -74,5 +70,8 @@ public class Areas {
                 Areas.editArea();
                 break;
         }
+    }
+    private Areas(){
+
     }
 }

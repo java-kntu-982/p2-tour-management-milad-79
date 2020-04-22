@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class TourMenu {
     private static ArrayList<Tour> tours =new ArrayList<>();
 
+
     public static Tour getTours(int index){
         return tours.get(index);
     }
@@ -35,12 +36,6 @@ public class TourMenu {
                 break;
             case 4:
                 addTour();
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
                 break;
         }
     }
@@ -97,9 +92,9 @@ public class TourMenu {
         tour.setTime(input.nextInt());
         System.out.println("mantaghe?\n1-dakhely\n2-kharegi");
         if(input.nextInt()==1) {
-            tour.setNoe(TypeArea.INTERNAL);
+            tour.setTypeArea(TypeArea.INTERNAL);
         } else{
-            tour.setNoe(TypeArea.FOREIGN);
+            tour.setTypeArea(TypeArea.FOREIGN);
         }
         System.out.println("gheymat?");
         tour.setPrice(input.nextInt());
@@ -129,19 +124,22 @@ public class TourMenu {
             System.out.println("maghsad taarif nashode.tarif shavad?\n1-yes\t2-no");
             if (input.nextInt()==1){
                 Areas.addlocal(name);
-                tour.setBeginning(name);
+                tour.setDistination(name);
             } else{
                 System.out.println("maghsad namoshakhas.badan ba afzodan local, maghsad ra virayesh konid");
             }
         } else{
-            tour.setBeginning(name);
+            tour.setDistination(name);
         }
         System.out.println("tarighe safar?\n1-havaie\n2-zamini");
         if (input.nextInt()==1){
-            tour.setTypeTrip(TypeTrip.BYAIR);
+            tour.setTypeTrip(TypeTrip.Air);
         } else {
             tour.setTypeTrip(TypeTrip.EARTHLY);
         }
         return tour;
+    }
+    private TourMenu(){
+
     }
 }

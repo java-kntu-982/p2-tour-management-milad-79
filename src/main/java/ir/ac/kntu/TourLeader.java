@@ -11,13 +11,7 @@ public class TourLeader {
     private Date employment;
     private String area;
 
-    public Date getEmployment() {
-        return employment;
-    }
 
-    public String getArea() {
-        return area;
-    }
 
     public void setArea(String area) {
         this.area = area;
@@ -44,24 +38,13 @@ public class TourLeader {
         this.lastName = lastName;
     }
 
-    public int getNationalNamber() {
-        return nationalNamber;
-    }
 
     public void setNationalNamber(int nationalNamber) {
         this.nationalNamber = nationalNamber;
     }
 
-    public boolean isMarried() {
-        return isMarried;
-    }
-
     public void setMarried(boolean married) {
         this.isMarried = married;
-    }
-
-    public Date getBirth() {
-        return birth;
     }
 
     public void setBirth(Date birth) {

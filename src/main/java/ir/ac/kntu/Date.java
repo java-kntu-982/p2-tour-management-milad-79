@@ -35,35 +35,6 @@ public class Date {
         }
         return month != 12 || day != 30 || isLeapYear(year);
     }
-
-    public void setDate(int year, int month, int day) {
-        checkAndSetDate(year, month, day);
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        checkAndSetDate(year, this.month, this.day);
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        checkAndSetDate(this.year, month, this.day);
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        checkAndSetDate(this.year, this.month, day);
-    }
-
     public String toString() {
         return year + "-" + month + "-" + day;
     }
