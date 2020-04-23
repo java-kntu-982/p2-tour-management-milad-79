@@ -30,7 +30,8 @@ public class Main {
             case 4:
                 Map.start();
                 break;
-            case 5:Admin.changeInformation();
+            case 5:
+                Moshtari.changeInformation();
         }
     }
 

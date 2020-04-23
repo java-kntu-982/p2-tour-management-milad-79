@@ -15,7 +15,6 @@ public class Tour {
     private int mostParticipant;
     private TypeTrip typeTrip;
     private TypeArea typeArea;
-    String[] bazdidha=new String[time];
     private TourLeader leader;
 
     public String getName() {
@@ -96,41 +95,37 @@ public class Tour {
         this.typeTrip = typeTrip;
     }
 
-
     @Override
     public String toString() {
         return "Tour{" +
                 "name='" + name + '\'' +
                 ", time=" + time +
-                ", mabda='" + beginning + '\'' +
-                ", maghsad='" + distination + '\'' +
+                ", beginning='" + beginning + '\'' +
+                ", distination='" + distination + '\'' +
                 ", startTour=" + startTour +
-                ", finishTour=" + finishTour +
                 ", price=" + price +
-                ", kamtarintedad=" + lowestParticipant +
-                ", bishtarintedad=" + mostParticipant +
-                ", noe=" + typeTrip +
-                ", noeArea=" + typeArea +
-                ", bazdidha=" + Arrays.toString(bazdidha) +
-                ", leader=" + leader +
+                ", lowestParticipant=" + lowestParticipant +
+                ", mostParticipant=" + mostParticipant +
+                ", typeTrip=" + typeTrip +
+                ", typeArea=" + typeArea +
                 '}';
     }
 
-    public String toString1() {
+    public static String toString(Tour tour) {
         return "Tour{" +
-                "name='" + name + '\'' +
-                ", takmilTour=" + isComplete +
-                ", Time=" + time +
-                ", mabda='" + beginning + '\'' +
-                ", maghsad='" + distination + '\'' +
-                ", StartTour=" + startTour +
-                ", FinishTour=" + finishTour +
-                ", prize=" + price +
-                ", kamtarintedad=" + lowestParticipant +
-                ", bishtarintedad=" + mostParticipant +
-                ", noe=" + typeTrip +
-                ", Local=" + typeArea +
-                ", leader=" + leader +
+                "name='" + tour.name + '\'' +
+                ", isComplete=" + tour.isComplete +
+                ", time=" + tour.time +
+                ", beginning='" + tour.beginning + '\'' +
+                ", distination='" + tour.distination + '\'' +
+                ", startTour=" + tour.startTour +
+                ", finishTour=" + tour.finishTour +
+                ", price=" + tour.price +
+                ", lowestParticipant=" + tour.lowestParticipant +
+                ", mostParticipant=" + tour.mostParticipant +
+                ", typeTrip=" + tour.typeTrip +
+                ", typeArea=" + tour.typeArea +
+                ", leader=" + tour.leader +
                 '}';
     }
 }

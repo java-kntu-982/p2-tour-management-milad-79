@@ -1,11 +1,10 @@
 package ir.ac.kntu;
 
 
-
 public class TourLeader {
     private String firsName;
     private String lastName;
-    private int nationalNamber;
+    private int nationalNumber;
     private boolean isMarried;
     private Date birth;
     private Date employment;
@@ -39,8 +38,8 @@ public class TourLeader {
     }
 
 
-    public void setNationalNamber(int nationalNamber) {
-        this.nationalNamber = nationalNamber;
+    public void setNationalNumber(int nationalNumber) {
+        this.nationalNumber = nationalNumber;
     }
 
     public void setMarried(boolean married) {
@@ -58,7 +57,7 @@ public class TourLeader {
         return "TourLeader{" +
                 "FirsName='" + firsName + '\'' +
                 ", LastName='" + lastName + '\'' +
-                ", shomare_meli=" + nationalNamber +
+                ", shomare_meli=" + nationalNumber +
                 ", tahol=" + isMarried +
                 ", birth=" + birth +
                 ", estekhdam=" + employment +

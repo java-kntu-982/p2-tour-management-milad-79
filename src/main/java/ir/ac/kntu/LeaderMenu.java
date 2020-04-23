@@ -55,7 +55,7 @@ public class LeaderMenu {
 
             if (ch == 3) {
                 int n = input.nextInt();
-                leaders.get(index).setNationalNamber(n);
+                leaders.get(index).setNationalNumber(n);
             }
             if (ch == 4) {
                 if (input.nextInt() == 0) {
@@ -122,7 +122,7 @@ public class LeaderMenu {
         System.out.println("ListName?");
         leader.setLastName(input.nextLine());
         System.out.println("shomare meli?");
-        leader.setNationalNamber(input.nextInt());
+        leader.setNationalNumber(input.nextInt());
         System.out.println("tahol?\n1-yes\n2-no");
         if (input.nextInt()==1){
             leader.setMarried(true);
