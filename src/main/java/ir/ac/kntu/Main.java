@@ -15,7 +15,6 @@ public class Main {
         System.out.println("2-Tour");
         System.out.println("3-Locals");
         System.out.println("4-Maps");
-        System.out.println("5-Change Information");
         Scanner input = new Scanner(System.in);
         switch (input.nextInt()) {
             case 1:
@@ -30,8 +29,6 @@ public class Main {
             case 4:
                 Map.start();
                 break;
-            case 5:
-                Moshtari.changeInformation();
         }
     }
 

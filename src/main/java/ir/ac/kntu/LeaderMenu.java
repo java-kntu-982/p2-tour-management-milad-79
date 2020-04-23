@@ -100,7 +100,7 @@ public class LeaderMenu {
         Scanner input=new Scanner(System.in);
         leaders.remove(input.nextInt());
     }
-    public static void listLeader(){
+    public static boolean listLeader(){
         System.out.println("  FirstName\tLastName");
         int i;
         for(i=0;i<leaders.size();i++){
@@ -111,7 +111,9 @@ public class LeaderMenu {
         }
         if (i==0){
             System.out.println("Not Found");
+            return false;
         }
+        return true;
     }
 
     public static TourLeader add(){

@@ -1,5 +1,7 @@
 package ir.ac.kntu;
 
+import java.util.Objects;
+
 public class Date {
 
     private int year;
@@ -68,7 +70,9 @@ public class Date {
             nextDate.day++;
         }
     }
-
+    public static int fasele(Date date1,Date date2){
+        return (date1.year-date2.year)*(date1.month-date2.month)*30+(date1.day-date2.day);
+    }
     private boolean isLeapYear(int year) {
         int firstFraction, secondFraction;
         final double a = 0.025d;
@@ -86,5 +90,20 @@ public class Date {
         firstFraction = (int) ((c - Math.floor(c)) * 1000);
         secondFraction = (int) ((d - Math.floor(d)) * 1000);
         return firstFraction <= b && secondFraction > b;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Date date = (Date) o;
+        return year == date.year &&
+                month == date.month &&
+                day == date.day;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(year, month, day);
     }
 }

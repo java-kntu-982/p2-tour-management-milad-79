@@ -7,7 +7,7 @@ public class Tour {
     private boolean isComplete;
     private int time;
     private String beginning;
-    private String distination;
+    private String distention;
     private Date startTour;
     private Date finishTour;
     private int price;
@@ -16,12 +16,32 @@ public class Tour {
     private TypeTrip typeTrip;
     private TypeArea typeArea;
     private TourLeader leader;
+    private String[] places =new String[time];
 
     public String getName() {
         return name;
     }
     public Tour(){
+    }
 
+    public int getTime() {
+        return time;
+    }
+
+    public void setPlaces(String[] places) {
+        this.places = places;
+    }
+
+    public Date getStartTour() {
+        return startTour;
+    }
+
+    public Date getFinishTour() {
+        return finishTour;
+    }
+
+    public String getPlaces(int i) {
+        return places[i];
     }
 
     public void setLeader(TourLeader leader) {
@@ -32,8 +52,8 @@ public class Tour {
         this.name = name;
     }
 
-    public void setDistination(String distination) {
-        this.distination = distination;
+    public void setDistention(String distention) {
+        this.distention = distention;
     }
 
     public boolean isComplete() {
@@ -56,8 +76,8 @@ public class Tour {
         this.beginning = beginning;
     }
 
-    public String getDistination() {
-        return distination;
+    public String getDistention() {
+        return distention;
     }
 
     public void setStartTour(Date startTour) {
@@ -101,23 +121,23 @@ public class Tour {
                 "name='" + name + '\'' +
                 ", time=" + time +
                 ", beginning='" + beginning + '\'' +
-                ", distination='" + distination + '\'' +
-                ", startTour=" + startTour +
+                ", distention='" + distention + '\'' +
                 ", price=" + price +
                 ", lowestParticipant=" + lowestParticipant +
                 ", mostParticipant=" + mostParticipant +
                 ", typeTrip=" + typeTrip +
                 ", typeArea=" + typeArea +
+                ", places=" + Arrays.toString(places) +
                 '}';
     }
 
-    public static String toString(Tour tour) {
-        return "Tour{" +
+    public static void toString(Tour tour) {
+        System.out.println( "Tour{" +
                 "name='" + tour.name + '\'' +
                 ", isComplete=" + tour.isComplete +
                 ", time=" + tour.time +
                 ", beginning='" + tour.beginning + '\'' +
-                ", distination='" + tour.distination + '\'' +
+                ", distination='" + tour.distention + '\'' +
                 ", startTour=" + tour.startTour +
                 ", finishTour=" + tour.finishTour +
                 ", price=" + tour.price +
@@ -126,6 +146,6 @@ public class Tour {
                 ", typeTrip=" + tour.typeTrip +
                 ", typeArea=" + tour.typeArea +
                 ", leader=" + tour.leader +
-                '}';
+                '}');
     }
 }

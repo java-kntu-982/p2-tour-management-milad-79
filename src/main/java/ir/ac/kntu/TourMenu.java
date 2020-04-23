@@ -26,10 +26,10 @@ public class TourMenu {
             case 0:Main.startMenu();
                 break;
             case 1:
-                listTour();
+                listTypeTour();
                 break;
             case 2:
-                listTours();
+                listTour();
                 break;
             case 3:
                 tours.add(addTourStructure());
@@ -39,11 +39,62 @@ public class TourMenu {
                 break;
             case 5:editTypeTour();
                 break;
+            case 6: editTour();
+                break;
+            case 7:removeTour();
+                break;
         }
+    }
+    public static void removeTour(){
+        System.out.println("Choose Tour");
+        listTour();
+        Scanner input=new Scanner(System.in);
+        int index=input.nextInt();
+        tours.remove(index);
+    }
+    public static void editTour(){
+        System.out.println("choose Tour");
+        listTour();
+        Scanner input=new Scanner(System.in);
+        int index=input.nextInt();
+        Tour tour=tours.get(index);
+        while (true) {
+            Tour.toString(tour);
+            System.out.println("choose element:");
+            System.out.println("0-payan virayesh\n1-tarikh shoro\n2-leader\n3-Final Name");
+            int choose=input.nextInt();
+            if (choose==0){
+                break;
+            }
+            if (choose==1){
+                System.out.println("new year:");
+                int year = input.nextInt();
+                System.out.println("new mah:");
+                int month = input.nextInt();
+                System.out.println("new roz:");
+                int day = input.nextInt();
+                tour.setStartTour(new Date(year, month, day));
+            }
+            if (choose==2){
+                System.out.println("Choose new LeaderTour");
+                if(!LeaderMenu.listLeader()){
+                    System.out.println("leader ra badan entekhab konid");
+                } else {
+                    int i = input.nextInt();
+                    tour.setLeader(LeaderMenu.leaders.get(i));
+                }
+            }
+            if (choose==3){
+                System.out.println("Enter new final name:");
+                tour.setName(input.next());
+            }
+            tours.set(index,tour);
+        }
+
     }
     public static void addTour() {
         System.out.println("choose Tour");
-        listTour();
+        listTypeTour();
         Scanner input = new Scanner(System.in);
         int index = input.nextInt();
         Tour tour = tours.get(index);
@@ -58,9 +109,12 @@ public class TourMenu {
         int day = input.nextInt();
         tour.setStartTour(new Date(year, month, day));
         System.out.println("choose Leader Tour");
-        LeaderMenu.listLeader();
-        int i = input.nextInt();
-        tour.setLeader(LeaderMenu.leaders.get(i));
+        if(!LeaderMenu.listLeader()){
+            System.out.println("leader ra badan entekhab konid");
+        }else {
+            int i = input.nextInt();
+            tour.setLeader(LeaderMenu.leaders.get(i));
+        }
         System.out.println("Final Name?");
         tour.setName(input.next());
         tours.set(index, tour);
@@ -68,17 +122,17 @@ public class TourMenu {
     public static void listTour(){
         int i;
         for (i=0; i< tours.size(); i++){
-            if(tours.get(i).isComplete()) {
+            if(!tours.get(i).isComplete()) {
                 continue;
             }
             System.out.print(i+"-");
-            System.out.println(tours.get(i));
+            System.out.println(tours.get(i).getName());
         }
     }
-    public static void listTours(){
+    public static void listTypeTour(){
         int i;
         for (i=0; i< tours.size(); i++){
-            if(!tours.get(i).isComplete()) {
+            if(tours.get(i).isComplete()) {
                 continue;
             }
             Tour.toString(tours.get(i));
@@ -88,12 +142,12 @@ public class TourMenu {
     public static void editTypeTour(){
         Scanner input=new Scanner(System.in);
         System.out.println("Choose Tour:");
-        listTour();
+        listTypeTour();
         Tour tour=tours.get(input.nextInt());
         System.out.println(tour);
         System.out.println("choose element:");
         System.out.println("0-finish vireyesh\n1-Name\n2-time\n3-mentaghe" +
-                "\n4-gheymat\n5-kamtarin tadad\n6-bishtarin tadad\n7-mabda\n8-maghsad\n9-tarighe safar");
+                "\n4-gheymat\n5-kamtarin tadad\n6-bishtarin tadad\n7-mabda\n8-maghsad\n9-tarighe safar\n10-bazdidha");
         while (true) {
             int choose = input.nextInt();
 
@@ -153,12 +207,12 @@ public class TourMenu {
                     System.out.println("maghsad taarif nashode.tarif shavad?\n1-yes\t2-no");
                     if (input.nextInt() == 1) {
                         Areas.addlocal(name);
-                        tour.setDistination(name);
+                        tour.setDistention(name);
                     } else {
                         System.out.println("maghsad namoshakhas.badan ba afzodan local, maghsad ra virayesh konid");
                     }
                 } else {
-                    tour.setDistination(name);
+                    tour.setDistention(name);
                 }
             }
             if (choose == 9) {
@@ -168,6 +222,14 @@ public class TourMenu {
                 } else {
                     tour.setTypeTrip(TypeTrip.EARTHLY);
                 }
+            }
+            if (choose==10){
+                String[] bazdid=new String[tour.getTime()];
+                for (int i=0;i<tour.getTime();i++) {
+                    System.out.println("enter new Bazdid rooz"+i+1+":");
+                    bazdid[i]=input.next();
+                }
+                tour.setPlaces(bazdid);
             }
         }
     }
@@ -213,12 +275,12 @@ public class TourMenu {
             System.out.println("maghsad taarif nashode.tarif shavad?\n1-yes\t2-no");
             if (input.nextInt()==1){
                 Areas.addlocal(name);
-                tour.setDistination(name);
+                tour.setDistention(name);
             } else{
                 System.out.println("maghsad namoshakhas.badan ba afzodan local, maghsad ra virayesh konid");
             }
         } else{
-            tour.setDistination(name);
+            tour.setDistention(name);
         }
         System.out.println("tarighe safar?\n1-havaie\n2-zamini");
         if (input.nextInt()==1){
@@ -226,6 +288,12 @@ public class TourMenu {
         } else {
             tour.setTypeTrip(TypeTrip.EARTHLY);
         }
+        String[] bazdid=new String[tour.getTime()];
+        for (int i=1;i<=tour.getTime();i++) {
+            System.out.println("enter Bazdid rooz"+i+":");
+            bazdid[i-1]=input.next();
+        }
+        tour.setPlaces(bazdid);
         return tour;
     }
     private TourMenu(){
